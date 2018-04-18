@@ -13,6 +13,7 @@ datagroup: ecommerce_case_study_default_datagroup {
 
 persist_with: ecommerce_case_study_default_datagroup
 
+
 explore: distribution_centers {}
 
 explore: etl_jobs {}
