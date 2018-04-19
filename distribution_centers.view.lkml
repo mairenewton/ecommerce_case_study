@@ -24,6 +24,5 @@ view: distribution_centers {
 
   measure: count {
     type: count
-    drill_fields: [id, name, products.count]
   }
 }

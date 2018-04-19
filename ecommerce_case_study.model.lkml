@@ -7,7 +7,7 @@ include: "*.view"
 include: "*.dashboard"
 
 datagroup: ecommerce_case_study_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT COUNT(*) FROM public.order_items ;;
   max_cache_age: "1 hour"
 }
 
@@ -22,6 +22,11 @@ explore: events {
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
+    relationship: many_to_one
+  }
+  join: user_facts {
+    type: left_outer
+    sql_on: ${events.user_id} = ${user_facts.user_id} ;;
     relationship: many_to_one
   }
 }
@@ -46,6 +51,12 @@ explore: order_items {
   join: users {
     type: left_outer
     sql_on: ${order_items.user_id} = ${users.id} ;;
+    relationship: many_to_one
+  }
+
+  join: user_facts {
+    type: left_outer
+    sql_on: ${order_items.user_id} = ${user_facts.user_id} ;;
     relationship: many_to_one
   }
 
@@ -76,4 +87,15 @@ explore: products {
   }
 }
 
-explore: users {}
+explore: users {
+  join: user_facts {
+    type: left_outer
+    sql_on: ${users.id} = ${user_facts.user_id} ;;
+    relationship: one_to_one
+  }
+  join: user_retention {
+    type: left_outer
+    sql_on: ${users.id} = ${user_retention.user_id} ;;
+    relationship: one_to_one
+  }
+}

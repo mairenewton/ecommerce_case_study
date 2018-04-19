@@ -89,7 +89,6 @@ view: events {
 
   dimension: user_id {
     type: number
-    # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
 
@@ -100,6 +99,5 @@ view: events {
 
   measure: count {
     type: count
-    drill_fields: [id, users.id, users.first_name, users.last_name]
   }
 }
