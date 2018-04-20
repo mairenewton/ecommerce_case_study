@@ -11,6 +11,7 @@ datagroup: ecommerce_case_study_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+
 persist_with: ecommerce_case_study_default_datagroup
 
 
