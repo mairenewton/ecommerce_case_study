@@ -13,11 +13,13 @@ view: users {
   }
 
   dimension: city {
+    group_label: "state info"
     type: string
     sql: ${TABLE}.city ;;
   }
 
   dimension: country {
+    group_label: "state info"
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
@@ -43,8 +45,15 @@ view: users {
   }
 
   dimension: first_name {
+    group_label: "name info"
     type: string
     sql: ${TABLE}.first_name ;;
+  }
+
+  dimension: full_name {
+    group_label: "name info"
+    type: string
+    sql:${first_name} || ${last_name} ;;
   }
 
   dimension: gender {
@@ -53,21 +62,25 @@ view: users {
   }
 
   dimension: last_name {
+    group_label: "name info"
     type: string
     sql: ${TABLE}.last_name ;;
   }
 
   dimension: latitude {
+    group_label: "state info"
     type: number
     sql: ${TABLE}.latitude ;;
   }
 
   dimension: longitude {
+    group_label: "state info"
     type: number
     sql: ${TABLE}.longitude ;;
   }
 
   dimension: state {
+    group_label: "state info"
     type: string
     sql: ${TABLE}.state ;;
   }
@@ -78,6 +91,7 @@ view: users {
   }
 
   dimension: zip {
+    group_label: "state info"
     type: zipcode
     sql: ${TABLE}.zip ;;
   }

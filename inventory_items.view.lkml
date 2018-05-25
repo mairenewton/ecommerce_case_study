@@ -80,7 +80,24 @@ view: inventory_items {
     sql: ${TABLE}.sold_at ;;
   }
 
+
+  ###MEASURES###
+
   measure: count {
     type: count
     }
+
+
+  measure: total_cost {
+    type: sum
+    value_format_name: usd_0
+    sql: ${TABLE}.cost ;;
+  }
+
+  measure: average_cost {
+    type: average
+    value_format_name: usd_0
+    sql: ${TABLE}.cost ;;
+  }
+
 }
