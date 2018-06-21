@@ -111,5 +111,11 @@ view: order_items {
       value: "Complete"
     }
   }
+  measure: number_of_returned_items{
+    type: count
+    filters: {
+      field: status
+      value: "Returned"
+    }
 
-}
+}}

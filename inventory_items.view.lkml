@@ -101,5 +101,9 @@ view: inventory_items {
       type: number
       sql: ${order_items.total_net_revenue}-${total_cost};;
     }
+    measure: percent_margin {
+      type: number
+      sql: ${total_margin}/${order_items.total_net_revenue} ;;
+    }
 
 }
