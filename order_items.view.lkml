@@ -85,11 +85,31 @@ view: order_items {
 
   dimension: user_id {
     type: number
-    sql: ${TABLE}.user_id ;;
-  }
+    sql: ${TABLE}.user_id ;;}
+
 
   measure: count {
     type: count
+  }
+  measure: total_sales{
+    value_format_name: usd
+    description: "so much money so little time"
+    type: sum
+    sql: ${sale_price} ;;
+  }
+  measure: average_sales_revenue {
+    value_format_name: usd
+    type: average
+    sql: ${sale_price} ;;
+  }
+
+  measure: total_net_revenue {
+    type: sum
+    sql: ${sale_price};;
+    filters: {
+      field: status
+      value: "Complete"
+    }
   }
 
 }

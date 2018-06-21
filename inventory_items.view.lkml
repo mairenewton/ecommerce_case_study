@@ -83,4 +83,23 @@ view: inventory_items {
   measure: count {
     type: count
     }
+
+    measure: total_cost {
+      value_format_name: usd
+      type: sum
+      sql: ${cost}  ;;
+
+    }
+    measure: average_cost {
+      value_format_name: usd
+      type: average
+      sql: ${cost} ;;
+    }
+
+    measure: total_margin {
+      value_format_name: usd
+      type: number
+      sql: ${order_items.total_net_revenue}-${total_cost};;
+    }
+
 }
